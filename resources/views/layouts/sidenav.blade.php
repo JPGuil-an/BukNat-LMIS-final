@@ -150,13 +150,12 @@
             <div class="card-body text-center p-3 w-100 pt-0">
                 <div class="docs-info">
 
-                    <p class="text-xs font-weight-bold mb-0">Bukidnon National High School Library Management
-                        Information System</p>
+                    <p class="text-xs font-weight-bold mb-0">Use the Scanner below for Record Keeping of the Library Visitors.</p>
                 </div>
             </div>
         </div>
-        <a href="" target="" class="btn btn-dark btn-sm w-100 mb-3">Documentation</a>
-        <a href="" target="" class="btn btn-primary btn-sm mb-0 w-100" href="" type="button">Go to
-            User Dashboard</a>
+        <a href="/Librarian/transaction/logs" target="" class="btn btn-warning btn-sm w-100 mb-3">Scan Students' QR</a>
+        {{-- <a href="" target="" class="btn btn-primary btn-sm mb-0 w-100" href="" type="button">Go to
+            User Dashboard</a> --}}
     </div>
 </aside>

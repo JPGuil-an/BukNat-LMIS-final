@@ -99,13 +99,15 @@
                                                         <div class="col-4">
                                                             <!-- Button to open the camera modal -->
                                                             <button class="btn btn-primary form-control"
-                                                                data-bs-toggle="modal" data-bs-target="#cameraStudentModal">Scan
+                                                                data-bs-toggle="modal"
+                                                                data-bs-target="#cameraStudentModal">Scan
                                                                 Student QR Code</button>
                                                         </div>
                                                         <div class="col">
                                                             <!-- Button to open the camera modal -->
                                                             <button class="btn btn-primary form-control"
-                                                                data-bs-toggle="modal" data-bs-target="#cameraBookModal">Scan
+                                                                data-bs-toggle="modal"
+                                                                data-bs-target="#cameraBookModal">Scan
                                                                 Book QR Code</button>
                                                         </div>
                                                     </div>
@@ -243,25 +245,25 @@
                     </div>
                 </div>
 
-                 <!-- Camera STudent modal -->
-                 <div class="modal fade" id="cameraStudentModal" tabindex="-1" aria-labelledby="cameraModalLabel"
-                 aria-hidden="true">
-                 <div class="modal-dialog modal-dialog-centered modal-lg">
-                     <div class="modal-content">
-                         <div class="modal-header">
-                             <h5 class="modal-title" id="cameraModalLabel">Scan Student QR Code</h5>
-                             <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                 aria-label="Close"></button>
-                         </div>
-                         <div class="modal-body">
-                             <video id="scanner1"></video>
-                         </div>
-                         <div class="modal-footer">
-                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-                         </div>
-                     </div>
-                 </div>
-             </div>
+                <!-- Camera STudent modal -->
+                <div class="modal fade" id="cameraStudentModal" tabindex="-1" aria-labelledby="cameraModalLabel"
+                    aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered modal-lg">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="cameraModalLabel">Scan Student QR Code</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                    aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <video id="scanner1"></video>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
 
 
@@ -344,8 +346,8 @@
                         video: scanner1
                     });
 
-                     // Attach an event listener for the scan event
-                     instascanScanner1.addListener('scan', function(content) {
+                    // Attach an event listener for the scan event
+                    instascanScanner1.addListener('scan', function(content) {
                         // Update the input field with the scanned result
                         $('#search-student-borrow').val(content);
 
@@ -353,8 +355,8 @@
                         $('#cameraStudentModal').modal('hide');
                     });
 
-                     // Start the scanner when the camera modal is shown
-                     $('#cameraStudentModal').on('shown.bs.modal', function() {
+                    // Start the scanner when the camera modal is shown
+                    $('#cameraStudentModal').on('shown.bs.modal', function() {
                         Instascan.Camera.getCameras().then(function(cameras) {
                             if (cameras.length > 0) {
                                 // Use the rear camera by default
@@ -376,6 +378,5 @@
                     $('#cameraStudentModal').on('hidden.bs.modal', function() {
                         instascanScanner1.stop();
                     });
-
                 </script>
             @endsection

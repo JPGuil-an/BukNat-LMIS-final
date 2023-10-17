@@ -9,6 +9,7 @@ use App\Models\User;
 use SimpleXMLElement;
 use App\Models\Author;
 use App\Models\BookSection;
+use App\Models\RecordLogin;
 use App\Models\Transaction;
 use Illuminate\Http\Request;
 use App\Models\BookTransaction;
@@ -394,7 +395,7 @@ class LibrarianController extends Controller
             ->with('bookTransactions', 'user')
             ->first();
 
-        // if ($studentWTransactions) {
+        if ($studentWTransactions ) {
 
         foreach ($studentWTransactions->bookTransactions as $bookTransaction) {
 
@@ -404,12 +405,40 @@ class LibrarianController extends Controller
             'transaction' => $studentWTransactions,
             'books' => $book,
         ]);
+        }
 
         // return response()->json( $studentWTransactions);
     }
     public function updateStudents()
     {
         return view('pagesLibrarian.updateStudentrecords');
+    }
+
+    public function studentLogbook()
+    {
+
+        // $name= $request('qr_code');
+        // echo'
+        // <scri pt>
+        // alert("ashasg");
+        // </sc ript>
+        // ';
+        return view('pagesLibrarian.transactionLogs');
+
+    }
+
+
+    public function recordLogins(Request $request){
+       $qrID= $request->input('qr_code');
+
+       $user = User::where('id_number', $qrID)->first();
+
+       RecordLogin::create([
+        'id_number' => $request->input('qr_code'),
+        'name' => $user->name
+       ]);
+
+       return view('pagesLibrarian.transactionLogs');
     }
 
     public function updateStudentsRecord(Request $request)
@@ -430,6 +459,8 @@ class LibrarianController extends Controller
 
         return  view('pagesLibrarian.updateStudentrecords');
     }
+
+
 
 
     public function printGeneratedReport(Request $request)

@@ -26,13 +26,13 @@
                     <div class="nav-wrapper position-relative end-0">
                         <ul class="nav nav-pills nav-fill p-1">
 
-                            <li class="nav-item">
+                            {{-- <li class="nav-item">
                                 <a class="nav-link mb-0 px-0 py-1 d-flex align-items-center justify-content-center btn"
                                     @disabled(true)">
                                     <i class="ni ni-lock-circle-open"></i>
                                     <span class="ms-2">Transaction Lists</span>
                                 </a>
-                            </li>
+                            </li> --}}
 
                         </ul>
                     </div>

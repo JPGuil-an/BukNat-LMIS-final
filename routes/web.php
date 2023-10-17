@@ -74,10 +74,13 @@ Route::prefix('Librarian')->middleware(['auth', 'isLibrarian'])->group(function(
     Route::get('/records/update', [LibrarianController::class, 'updateStudents'])->name('updateStudents');//getting the info of the book
     Route::post('/records/update', [LibrarianController::class, 'updateStudentsRecord'])->name('updateStudentsRecord');
 
+    Route::get('/transaction/logs', [LibrarianController::class, 'studentLogbook']);
 
     Route::post('generate/report', [LibrarianController::class, 'printGeneratedReport'])->name('printGeneratedReport');
     Route::get('/transactions', [LibrarianController::class, 'studentTransactions'])->name('studentTransactions');
     Route::get('/transaction/{transaction}', [LibrarianController::class, 'studentTransaction'])->name('transaction');
+
+    Route::post('records/recordLogins', [LibrarianController::class, 'recordLogins'])->name('recordLogins');
 
 });
 
