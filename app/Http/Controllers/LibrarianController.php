@@ -417,13 +417,9 @@ class LibrarianController extends Controller
     public function studentLogbook()
     {
 
-        // $name= $request('qr_code');
-        // echo'
-        // <scri pt>
-        // alert("ashasg");
-        // </sc ript>
-        // ';
-        return view('pagesLibrarian.transactionLogs');
+        $records = RecordLogin::orderBy('created_at', 'desc')->get();
+
+        return view('pagesLibrarian.transactionLogs', compact('records'));
 
     }
 
@@ -433,12 +429,20 @@ class LibrarianController extends Controller
 
        $user = User::where('id_number', $qrID)->first();
 
+       if($user){
        RecordLogin::create([
         'id_number' => $request->input('qr_code'),
         'name' => $user->name
        ]);
 
-       return view('pagesLibrarian.transactionLogs');
+    }
+
+
+       $records = RecordLogin::orderBy('created_at', 'desc')->get();
+
+       return view('pagesLibrarian.transactionLogs', compact('records'));
+
+    //    return response()->json($records);
     }
 
     public function updateStudentsRecord(Request $request)

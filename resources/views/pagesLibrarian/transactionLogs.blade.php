@@ -16,7 +16,7 @@
             </div>
             <div class="container-fluid py-4 mt-2">
                 <div class="row">
-                    <div class="col-md-12">
+                    <div class="col-md-6">
                         <div class="card">
                             <div class="card-body">
                                 <p class="text-uppercase text-sm">Borrower Information</p>
@@ -37,7 +37,7 @@
                                                 </div>
                                             </div>
                                             <div class="row">
-                                                <div class="col-4">
+                                                <div class="col">
                                                     <!-- Button to open the camera modal -->
                                                     <button class="btn btn-primary form-control" data-bs-toggle="modal"
                                                         data-bs-target="#cameraStudentModal">Scan Student QR Code</button>
@@ -62,9 +62,34 @@
                                 </div>
                             </div>
                         </div>
+
                     </div>
+                    <div class="col-md-6">
+                        <div class="card">
+                            <div class="card-body">
+                                <p class="text-uppercase text-sm">Attendace Logs</p>
+                                <div class="row">
+                                    <div class="col">
+                                                @foreach ($records as $record)
+                                               <p class="text-secondary">{{ $record->id_number }} &ensp;{{   $record->name;}} &ensp; {{ $record->created_at }}</p>
+
+
+                                                @endforeach
+
+
+                                                {{-- {{ $reach  }} --}}
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+
                 </div>
             </div>
+
             <!-- Camera Student modal -->
             <div class="modal fade" id="cameraStudentModal" tabindex="-1" aria-labelledby="cameraModalLabel"
                 aria-hidden="true">
